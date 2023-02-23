@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-10">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        Expenses
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        My Expenses
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="col-md-2">
+            <a href="{% url 'expenses' %}" class="btn btn-primary">Back Expense</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="card text-left">
+                    <div class="card-body">
+                        <h5 class="card-title">Expense Detail</h5>
+                        <p class="card-text">
+                            <label for="amount">Amount :</label>
+                            {{ expense.amount }}
+                        </p>
+                        <p class="card-text">
+                            <label for="category">Category : </label>
+                            {{ expense.category }}
+                        </p>
+                        <p class="card-text">
+                            <label for="description">Description :</label>
+                            {{ expense.description }}
+                        </p>
+                        <p class="card-text">
+                            <label for="date">Date :</label>
+                            {{ expense.date }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

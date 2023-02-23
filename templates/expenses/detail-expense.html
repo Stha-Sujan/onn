@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-10">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'expenses' %}">Expenses</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        My Expenses
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="col-md-2">
+            <a href="{% url 'expenses' %}" class="btn btn-primary">Back Expense</a>
+        </div>
+    </div>
+
+    <div class="container">
+        {% include 'partials/_messages.html' %} 
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Expense Details</h5>
+                        <hr>
+                        <p class="card-text"><strong>Amount:</strong> {{ expense.amount }} {{ currency }}</p>
+                        <p class="card-text"><strong>Category:</strong> {{ expense.category }}</p>
+                        <p class="card-text"><strong>Description:</strong> {{ expense.description }}</p>
+                        <p class="card-text"><strong>Date:</strong> {{ expense.date }}</p>
+                       
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

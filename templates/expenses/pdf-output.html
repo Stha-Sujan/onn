@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Output</title>
+    <style>
+        @page {
+            size: "A4";
+            margin: 2.5cm 1.5cm 3.5cm 1.5cm;
+
+            @top-center {
+                content: "OnlineNotesNepal";
+                font-size: 20pt;
+            }
+
+            @bottom-right {
+                content: "Page " counter(page) " of " counter(pages);
+            }
+        }
+
+        /* Add a border to the table */
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .table th,
+        .table td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        .table th {
+            background-color: #ddd;
+            border: 1px solid #ddd;
+        }
+
+        .table td {
+            border: 1px solid #ddd;
+        }
+
+        /* Add styles for the logo */
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* Add styles for the total row */
+        .total {
+            font-weight: bold;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Load the logo -->
+    <img class="logo" src="{% static 'img/logo.png' %} " alt="">
+
+    <h2>Expense List</h2>
+
+    <table class="table">
+        <thead class="thead">
+            <tr>
+                <th>No</th>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for expense in expenses %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{expense.date}}</td>
+                <td>{{expense.category}}</td>
+                <td>{{expense.description}}</td>
+                <td>{{expense.amount}}</td>
+            </tr>
+            {% endfor %}
+
+            <!-- Add a separate row for the total and apply the "total" class to it -->
+            <tr class="total">
+                <td>Total</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{total}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

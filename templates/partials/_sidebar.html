@@ -1,0 +1,60 @@
+{% load static %}
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse mt-5">
+    <div class="position-sticky pt-3 sidebar-sticky">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+            <span data-feather="home" class="align-text-bottom"></span>
+            Dashboard <span class="sr-only">{{current}}</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'expenses' %}">
+            <span data-feather="trending-down" class="align-text-bottom"></span>
+            Expenses
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'income' %}">
+            <span data-feather="trending-up" class="align-text-bottom"></span>
+            Income
+          </a>
+        </li>
+        
+      </ul>
+
+      <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+        <span>Summary</span>
+        
+      </h6> -->
+      <!-- <ul class="nav flex-column mb-2">
+        <li class="nav-item">
+        
+            <span data-feather="minus" class="align-text-bottom"></span>
+            Expenses Summary 
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span data-feather="plus" class="align-text-bottom"></span>
+            Income Summary 
+          </a>
+        </li>
+        
+      </ul> -->
+      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+        <span>Settingd</span>
+       
+      </h6>
+      <ul class="nav flex-column mb-2">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'preferences' %}">
+            <span data-feather="briefcase" class="align-text-bottom"></span>
+            Currency
+          </a>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </nav>
